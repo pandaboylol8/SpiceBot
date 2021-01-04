@@ -49,5 +49,5 @@ async def on_message(message):
     await message.channel.send (quote)
   
   if message.content.startswith('$help'):
-    await message.channel.send('$hello, $pp, $ez, $fortnite, $inspire(the best one, save for last)')
+    await message.channel.send('$hello, $lol, $ez, $fortnite, $inspire(the best one, save for last)')
 client.run(os.getenv('TOKEN'))
