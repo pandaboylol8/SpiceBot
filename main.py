@@ -29,7 +29,7 @@ async def on_message(message):
     await message.channel.send('Hello, ya like spices??')
 
   
-  if message.content.startswith('$pp'):
+  if message.content.startswith('$lol'):
     await message.channel.send('Why do you have to get so political??')
 
   if message.content.startswith('https://tenor.com/view/ok-okay-awkward-smile-gif-5307535'):
