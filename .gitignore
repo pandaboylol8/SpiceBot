@@ -130,3 +130,6 @@ dmypy.json
 
 # poetry
 *.lock
+
+# repl.it
+.replit
