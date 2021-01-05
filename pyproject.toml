@@ -1,13 +1,16 @@
 [tool.poetry]
 name = "SpiceBot"
 version = "0.1.0"
-description = "SpiceBot: It exists!"
-
+description = ""
+authors = ["regulad <52430642+regulad@users.noreply.github.com>"]
 license = "GPL-3.0"
-readme = 'README.md'
-repository = "https://github.com/pandaboylol8/SpiceBot"
-homepage = "https://github.com/pandaboylol8/SpiceBot"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 discord = "^1.0.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
