@@ -1,15 +1,13 @@
 [tool.poetry]
-name = "spicebot"
+name = "SpiceBot"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "SpiceBot: It exists!"
+
+license = "GPL-3.0"
+readme = 'README.md'
+repository = "https://github.com/pandaboylol8/SpiceBot"
+homepage = "https://github.com/pandaboylol8/SpiceBot"
 
 [tool.poetry.dependencies]
 python = "^3.8"
 discord = "^1.0.1"
-
-[tool.poetry.dev-dependencies]
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
