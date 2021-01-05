@@ -1,53 +1,35 @@
 import discord
-import os
-import requests
-import json
+from discord.ext import commands
+import os, requests, json
 
-client = discord.Client()
+bot = commands.Bot(command_prefix='$')
 
-def get_quote():
-  response = requests.get("https://zenquotes.io/api/random")
-  json_data = json.loads(response.text)
-  quote = json_data[0]['q'] + " - " + json_data[0]['a']
-  return(quote)
-
-
-@client.event
-
+@bot.event
 async def on_ready():
-  print ('bot has logged in as {0.user}'.format(client))
+  print('Logged in as ' + str(bot.user.name) + '#' + str(bot.user.discriminator) + '(' + str(bot.user.id) + ')')
+    
+@bot.command(name='ez',description='gg no re',category="funni")
+async def _bot(ctx):
+  await ctx.send("https://tenor.com/view/ez-yann-gauthier-gif-18979624")
 
+@bot.command(name='quote',description='Get Inspired!',category="funni",aliases=['inspire'])
+async def quote(ctx):
+  def random():
+    response = requests.get("https://zenquotes.io/api/random")
+    json_data = json.loads(response.text)
+    quote = json_data[0]['q'] + " - " + json_data[0]['a']
+    return(quote)
+  quote = random()
+  embed = discord.Embed(
+    title=quote
+  )
+  await ctx.send(embed=embed)
 
+@bot.command(name='derg',description='Nice doggy!',category="funni",aliases=['dog'])
+async def derg(ctx):
+  embed = discord.Embed(
+    title="░▄▀▄▀▀▀▀▄▀▄░░░░░░░░░\n░█░░░░░░░░▀▄░░░░░░▄░\n█░░▀░░▀░░░░░▀▄▄░░█░█\n█░▄░█▀░▄░░░░░░░▀▀░░█\n█░░▀▀▀▀░░░░░░░░░░░░█\n█░░░░░░░░░░░░░░░░░░█\n█░░░░░░░░░░░░░░░░░░█\n░█░░▄▄░░▄▄▄▄░░▄▄░░█░\n░█░▄▀█░▄▀░░█░▄▀█░▄▀░\n░░▀░░░▀░░░░░▀░░░▀░░░"
+  )
+  await ctx.send(embed=embed)
 
-@client.event
-async def on_message(message):
-  if message.author == client.user:
-    return
-
-
-  if message.content.startswith('$hello'):
-    await message.channel.send('Hello, ya like spices??')
-
-  
-  if message.content.startswith('$lol'):
-    await message.channel.send('Why do you have to get so political??')
-
-  if message.content.startswith('https://tenor.com/view/ok-okay-awkward-smile-gif-5307535'):
-    await message.channel.send('Ok.')
-
-  if message.content.startswith('https://tenor.com/view/cat-gif-19827448'):
-    await message.channel.send('SOOOO CUTTTTE')
-
-  if message.content.startswith('$ez'):
-    await message.channel.send('https://tenor.com/view/ez-yann-gauthier-gif-18979624')
-
-  if message.content.startswith('$fortnite'):  
-    await message.channel.send('ur bad')
-
-  if message.content.startswith('$inspire'):
-    quote = get_quote()
-    await message.channel.send (quote)
-  
-  if message.content.startswith('$help'):
-    await message.channel.send('$hello, $lol, $ez, $fortnite, $inspire(the best one, save for last)')
-client.run(os.getenv('TOKEN'))
+bot.run(os.getenv('BOT_TOKEN'))
