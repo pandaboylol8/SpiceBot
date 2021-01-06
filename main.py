@@ -16,6 +16,10 @@ async def quote(ctx):
 @bot.command(name='ez',description='gg no re')
 async def ez(ctx):
   await ctx.send("https://tenor.com/view/ez-yann-gauthier-gif-18979624")
+
+@bot.command(name='real',description='get real')
+async def real(ctx):
+  await ctx.send("https://tenor.com/view/get-real-sexy-among-us-gif-19307656")
   
 @bot.command(name='gummi',description='🐻🐻🐻🐻 🧟 👉😗👈 🌪',aliases=['gummy'])
 async def gummi(ctx):
